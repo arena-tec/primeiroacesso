@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Email Corporativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0E76E0 0%, #5b00b8 100%);
+            padding: 10px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0E76E0 0%, #5b00b8 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .header img {
+            max-width: 200px;
+            width: 80%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            margin: 10px 0;
+            font-size: clamp(1.5em, 5vw, 2em);
+        }
+        
+        .header p {
+            font-size: clamp(0.9em, 3vw, 1.1em);
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #0E76E0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box h3 {
+            color: #0E76E0;
+            font-size: clamp(1em, 4vw, 1.2em);
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            margin: 8px 0;
+            font-size: clamp(0.9em, 3vw, 1em);
+        }
+        
+        .email-example {
+            background: white;
+            border: 2px solid #0E76E0;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: clamp(0.9em, 3.5vw, 1.2em);
+            color: #0E76E0;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        
+        .password-box {
+            background: #2d3748;
+            color: #48bb78;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-family: monospace;
+            font-size: clamp(1em, 4vw, 1.5em);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .step {
+            background: #f9fafb;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            padding: 20px 15px;
+            margin: 20px 0;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            max-width: 40px;
+            max-height: 40px;
+            background: linear-gradient(135deg, #0E76E0 0%, #5b00b8 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .step h2 {
+            color: #333;
+            margin: 10px 0;
+            font-size: clamp(1.1em, 4vw, 1.4em);
+        }
+        
+        .step > p {
+            margin: 10px 0;
+            font-size: clamp(0.9em, 3vw, 1em);
+        }
+        
+        .substep {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .substep-num {
+            background: #0E76E0;
+            color: white;
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            max-width: 30px;
+            min-height: 30px;
+            max-height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+        
+        .substep > div {
+            flex: 1;
+            font-size: clamp(0.85em, 3vw, 1em);
+        }
+        
+        .warning {
+            background: #fff5f5;
+            border-left: 4px solid #fc8181;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: clamp(0.85em, 3vw, 1em);
+        }
+        
+        .success {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: clamp(0.85em, 3vw, 1em);
+        }
+        
+        .phone {
+            background: #2d3748;
+            border-radius: 25px;
+            padding: 12px;
+            max-width: 250px;
+            margin: 20px auto;
+        }
+        
+        .phone-screen {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .phone-screen p {
+            font-size: clamp(0.8em, 3vw, 1em);
+            margin: 5px 0;
+        }
+        
+        .code {
+            font-size: clamp(1.5em, 6vw, 2em);
+            font-weight: bold;
+            color: #0E76E0;
+            letter-spacing: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        
+        .requirements {
+            background: white;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .requirements h4 {
+            color: #0E76E0;
+            margin-bottom: 8px;
+            font-size: clamp(0.95em, 3.5vw, 1.1em);
+        }
+        
+        .requirements p {
+            margin: 5px 0;
+            font-size: clamp(0.85em, 3vw, 1em);
+        }
+        
+        .qr-code-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .qr-code-section p:first-child {
+            color: #0E76E0;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: clamp(0.9em, 3vw, 1em);
+        }
+        
+        .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: repeating-linear-gradient(
+                45deg,
+                #f0f0f0,
+                #f0f0f0 10px,
+                white 10px,
+                white 20px
+            );
+            border: 3px solid #0E76E0;
+            margin: 15px auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #0E76E0;
+            font-size: clamp(0.8em, 3vw, 1em);
+        }
+        
+        .qr-code-section p:last-child {
+            color: #666;
+            font-size: clamp(0.85em, 3vw, 1em);
+        }
+        
+        .tips {
+            background: linear-gradient(135deg, #0E76E0 0%, #5b00b8 100%);
+            color: white;
+            padding: 20px 15px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+        
+        .tips h2 {
+            margin-bottom: 15px;
+            font-size: clamp(1.2em, 4vw, 1.5em);
+        }
+        
+        .tip {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: clamp(0.85em, 3vw, 1em);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #f9fafb;
+        }
+        
+        .footer p {
+            font-size: clamp(0.9em, 3vw, 1em);
+        }
+        
+        .footer h2 {
+            color: #0E76E0;
+            margin: 10px 0;
+            font-size: clamp(1.3em, 5vw, 1.8em);
+        }
+        
+        /* Media queries para ajustes finos */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .step {
+                padding: 15px 10px;
+            }
+            
+            .info-box {
+                padding: 12px;
+            }
+            
+            .email-example {
+                padding: 10px;
+                font-size: 0.85em;
+            }
+            
+            .password-box {
+                padding: 12px;
+                letter-spacing: 1px;
+            }
+            
+            .substep {
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            .code {
+                letter-spacing: 3px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                min-width: 35px;
+                min-height: 35px;
+                max-width: 35px;
+                max-height: 35px;
+                font-size: 1.1em;
+            }
+            
+            .substep-num {
+                width: 28px;
+                height: 28px;
+                min-width: 28px;
+                max-width: 28px;
+                min-height: 28px;
+                max-height: 28px;
+                font-size: 0.85em;
+            }
+            
+            .qr-placeholder {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        /* Melhorias para telas maiores */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .content {
+                padding: 30px;
+            }
+            
+            .header {
+                padding: 40px;
+            }
+            
+            .step {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://arenabsb.com.br/wp-content/uploads/2023/05/logo-header-arena-brb.svg" alt="Arena BSB Logo">
+            <h1>Primeiro Acesso</h1>
+            <p>Email Corporativo Arena BSB</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-box">
+                <h3>📋 Informações do Seu Email</h3>
+                <p><strong>Padrão de email:</strong> nome.sobrenome@arenabsb.com.br</p>
+                <p style="margin: 15px 0; color: #666;">Exemplos:</p>
+                <div class="email-example">joao.silva@arenabsb.com.br</div>
+                <div class="email-example">maria.santos@arenabsb.com.br</div>
+                <p style="margin-top: 20px;"><strong>Senha padrão:</strong></p>
+                <div class="password-box">[RECEBIDA NO E-MAIL]</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <h2>Acessar o Portal de Email</h2>
+                <div class="substep">
+                    <div class="substep-num">1</div>
+                    <div>Abra seu navegador (Chrome, Firefox, Edge)</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">2</div>
+                    <div>Acesse o portal de email ou Outlook Web</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">3</div>
+                    <div>Digite: <strong>primeironome.ultimosobrenome@arenabsb.com.br</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">4</div>
+                    <div>Digite a senha: <strong>[RECEBIDA NO E-MAIL]</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">5</div>
+                    <div>Clique em <strong>Entrar</strong></div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h2>Criar Sua Nova Senha</h2>
+                <p>O sistema solicitará a troca da senha:</p>
+                <div class="substep">
+                    <div class="substep-num">1</div>
+                    <div>Digite a senha atual: <strong>[RECEBIDA NO E-MAIL]</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">2</div>
+                    <div>Crie sua nova senha (mínimo 8 caracteres)</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">3</div>
+                    <div>Confirme a nova senha</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">4</div>
+                    <div>Clique em <strong>Confirmar</strong></div>
+                </div>
+                <div class="requirements">
+                    <h4>✓ Requisitos da Senha:</h4>
+                    <p>• Mínimo de 8 caracteres</p>
+                    <p>• Uma letra MAIÚSCULA</p>
+                    <p>• Uma letra minúscula</p>
+                    <p>• Um número</p>
+                    <p>• Um caractere especial (@, #, $, %)</p>
+                </div>
+                <div class="warning">
+                    <strong>⚠️ Importante!</strong> Anote sua senha em local seguro!
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h2>Instalar Microsoft Authenticator</h2>
+                <div class="substep">
+                    <div class="substep-num">📱</div>
+                    <div><strong>Android:</strong> Google Play Store<br><strong>iOS:</strong> App Store</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">🔍</div>
+                    <div>Procure: <strong>"Microsoft Authenticator"</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">⬇️</div>
+                    <div>Instale o app oficial da Microsoft</div>
+                </div>
+                <div class="phone">
+                    <div class="phone-screen">
+                        <div style="font-size: 2em;">📱</div>
+                        <strong style="color: #0E76E0;">Microsoft Authenticator</strong>
+                        <p style="color: #666; font-size: 0.9em;">App oficial Microsoft</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h2>Configurar o Authenticator</h2>
+                <div class="substep">
+                    <div class="substep-num">1</div>
+                    <div>Na tela do PC aparecerá um QR Code</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">2</div>
+                    <div>Abra o Authenticator no celular</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">3</div>
+                    <div>Toque em <strong>"+"</strong> ou <strong>"Adicionar conta"</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">4</div>
+                    <div>Escolha <strong>"Conta corporativa"</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">5</div>
+                    <div>Selecione <strong>"Digitalizar QR Code"</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">6</div>
+                    <div>Aponte a câmera para o QR Code</div>
+                </div>
+                <div class="qr-code-section">
+                    <p>Exemplo de QR Code:</p>
+                    <div class="qr-placeholder">QR CODE</div>
+                    <p>📸 Aponte a câmera aqui</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <h2>Verificar e Concluir</h2>
+                <div class="substep">
+                    <div class="substep-num">1</div>
+                    <div>Sistema pedirá código de verificação</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">2</div>
+                    <div>Abra o Authenticator</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">3</div>
+                    <div>Localize <strong>@arenabsb.com.br</strong></div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">4</div>
+                    <div>Digite o código de 6 dígitos</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">5</div>
+                    <div>Clique em <strong>Verificar</strong></div>
+                </div>
+                <div class="phone">
+                    <div class="phone-screen">
+                        <p style="color: #0E76E0; font-weight: bold;">Arena BSB</p>
+                        <p style="font-size: 0.9em; color: #666;">usuario@arenabsb.com.br</p>
+                        <div class="code">123456</div>
+                        <p style="font-size: 0.8em; color: #999;">Válido por 30 segundos</p>
+                    </div>
+                </div>
+                <div class="success">
+                    <strong>✅ Configuração Concluída!</strong><br>
+                    Seu email está pronto para uso!
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">🔄</div>
+                <h2>Próximos Acessos</h2>
+                <div class="substep">
+                    <div class="substep-num">1</div>
+                    <div>Digite seu email completo</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">2</div>
+                    <div>Digite sua nova senha</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">3</div>
+                    <div>Aprove no app ou digite o código</div>
+                </div>
+                <div class="substep">
+                    <div class="substep-num">✅</div>
+                    <div>Pronto!</div>
+                </div>
+            </div>
+            
+            <div class="tips">
+                <h2>💡 Dicas Importantes</h2>
+                <div class="tip">
+                    <strong>📱 Mantenha o app:</strong> Você precisará dele em cada acesso
+                </div>
+                <div class="tip">
+                    <strong>🔒 Proteja sua senha:</strong> Nunca compartilhe com ninguém
+                </div>
+                <div class="tip">
+                    <strong>📞 Mudou de celular?</strong> Atualize os dados imediatamente
+                </div>
+                <div class="tip">
+                    <strong>⚠️ Perdeu acesso?</strong> Contate o suporte de TI urgente
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Bem-vindo(a) a</p>
+            <h2>Arena BSB 🎉</h2>
+            <p style="font-size: 0.9em; color: #666;">Precisa de ajuda? Contate o suporte de TI</p>
+        </div>
+    </div>
+</body>
+</html>
